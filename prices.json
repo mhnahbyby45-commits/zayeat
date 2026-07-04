@@ -1,1 +1,22 @@
-
+[
+  {
+    "name": "نان خشک",
+    "price": "12000",
+    "icon": "https://img.icons8.com/color/96/bread.png"
+  },
+  {
+    "name": "پت شفاف",
+    "price": "15000",
+    "icon": "https://img.icons8.com/color/96/bottle.png"
+  },
+  {
+    "name": "آهن",
+    "price": "13000",
+    "icon": "https://img.icons8.com/color/96/metal.png"
+  },
+  {
+    "name": "کارتن",
+    "price": "8000",
+    "icon": "https://img.icons8.com/color/96/cardboard-box.png"
+  }
+]
