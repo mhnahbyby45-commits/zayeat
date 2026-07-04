@@ -1,28 +1,131 @@
-<h1>🏆 شهر طلا - قیمت روز</h1>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شهرطلا</title>
 
-<div id="list"></div>
-
-<script>
-async function loadPrices(){
-    const res = await fetch("prices.json");
-    const data = await res.json();
-
-    let html = "";
-
-    data.forEach(item => {
-        html += `
-        <div class="card">
-            <div class="info">
-                <img class="icon" src="${item.icon}">
-                <div>${item.name}</div>
-            </div>
-            <div class="price">${item.price} تومان</div>
-        </div>
-        `;
-    });
-
-    document.getElementById("list").innerHTML = html;
+<style>
+body{
+margin:0;
+font-family:tahoma;
+background:#f5f5f5;
 }
 
-loadPrices();
-</script>
+.header{
+background:#0a7d3b;
+color:white;
+padding:20px;
+text-align:center;
+font-size:32px;
+font-weight:bold;
+}
+
+.sub{
+text-align:center;
+color:#666;
+margin:10px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:15px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+padding:15px;
+margin-bottom:12px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.name{
+font-size:22px;
+font-weight:bold;
+}
+
+.price{
+color:#e53935;
+font-size:20px;
+font-weight:bold;
+}
+
+.update{
+text-align:center;
+color:#777;
+padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">🏆 شهرطلا</div>
+
+<div class="sub">قیمت روز ضایعات</div>
+
+<div class="container">
+
+<div class="card">
+<div class="name">🍞 نان خشک</div>
+<div class="price">12,000 تومان</div>
+</div>
+
+<div class="card">
+<div class="name">♻️ پت شفاف</div>
+<div class="price">15,000 تومان</div>
+</div>
+
+<div class="card">
+<div class="name">🟢 پت رنگی</div>
+<div class="price">13,000 تومان</div>
+</div>
+
+<div class="card">
+<div class="name">📦 کارتن</div>
+<div class="price">8,000 تومان</div>
+</div>
+
+<div class="card">
+<div class="name">📄 کاغذ باطله</div>
+<div class="price">7,000 تومان</div>
+</div>
+
+<div class="card">
+<div class="name">⚙️ آهن سنگین</div>
+<div class="price">14,000 تومان</div>
+</div>
+
+<div class="card">
+<div class="name">🔩 آهن سبک</div>
+<div class="price">13,000 تومان</div>
+</div>
+
+<div class="card">
+<div class="name">🥫 آلومینیوم خشک</div>
+<div class="price">125,000 تومان</div>
+</div>
+
+<div class="card">
+<div class="name">📰 استیل</div>
+<div class="price">45,000 تومان</div>
+</div>
+
+<div class="card">
+<div class="name">🔋 باتری فرسوده</div>
+<div class="price">55,000 تومان</div>
+</div>
+
+</div>
+
+<div class="update">
+آخرین بروزرسانی: امروز
+</div>
+
+</body>
+</html>
