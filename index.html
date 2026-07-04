@@ -1,112 +1,28 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شهر طلا</title>
-
-<style>
-body{
-    font-family:tahoma;
-    background:#f4f4f4;
-    margin:0;
-    padding:20px;
-}
-
-h1{
-    text-align:center;
-    color:#d4af37;
-    margin-bottom:20px;
-}
-
-/* کارت‌ها */
-.card{
-    background:white;
-    padding:15px;
-    margin:12px 0;
-    border-radius:15px;
-    box-shadow:0 2px 8px rgba(0,0,0,.1);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-/* سمت راست (لوگو + اسم) */
-.info{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-/* لوگو */
-.icon{
-    width:45px;
-    height:45px;
-}
-
-/* قیمت */
-.price{
-    color:#e53935;
-    font-weight:bold;
-    font-size:18px;
-}
-
-/* آپدیت */
-.update{
-    text-align:center;
-    margin-top:25px;
-    color:#666;
-}
-</style>
-
-</head>
-<body>
-
 <h1>🏆 شهر طلا - قیمت روز</h1>
 
-<div class="card">
-    <div class="info">
-        <img class="icon" src="https://img.icons8.com/color/96/leaf.png">
-        <div>نان خشک</div>
-    </div>
-    <div class="price">12,000 تومان</div>
-</div>
+<div id="list"></div>
 
-<div class="card">
-    <div class="info">
-        <img class="icon" src="https://img.icons8.com/color/96/star.png">
-        <div>پت شفاف</div>
-    </div>
-    <div class="price">15,000 تومان</div>
-</div>
+<script>
+async function loadPrices(){
+    const res = await fetch("prices.json");
+    const data = await res.json();
 
-<div class="card">
-    <div class="info">
-        <img class="icon" src="https://img.icons8.com/color/96/metal.png">
-        <div>آهن سنگین</div>
-    </div>
-    <div class="price">13,000 تومان</div>
-</div>
+    let html = "";
 
-<div class="card">
-    <div class="info">
-        <img class="icon" src="https://img.icons8.com/color/96/aluminum.png">
-        <div>کارتن</div>
-    </div>
-    <div class="price">8,000 تومان</div>
-</div>
+    data.forEach(item => {
+        html += `
+        <div class="card">
+            <div class="info">
+                <img class="icon" src="${item.icon}">
+                <div>${item.name}</div>
+            </div>
+            <div class="price">${item.price} تومان</div>
+        </div>
+        `;
+    });
 
-<div class="card">
-    <div class="info">
-        <img class="icon" src="https://img.icons8.com/color/96/phone.png">
-        <div>کاغذ باطله</div>
-    </div>
-    <div class="price">7,000 تومان</div>
-</div>
+    document.getElementById("list").innerHTML = html;
+}
 
-<div class="update">
-آخرین بروزرسانی: امروز
-</div>
-
-</body>
-</html>
+loadPrices();
+</script>
